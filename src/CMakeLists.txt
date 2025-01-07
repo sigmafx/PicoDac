@@ -1,20 +1,18 @@
-add_executable(PicoDac
-    main.cpp
-    waveWriter.cpp
+add_executable(PicoPong
+    main.c
     )
 
 # by default the header is generated into the build dir
-pico_generate_pio_header(PicoDac ${CMAKE_CURRENT_LIST_DIR}/PicoDac.pio)
+pico_generate_pio_header(PicoPong ${CMAKE_CURRENT_LIST_DIR}/PicoPong.pio)
 
 target_link_libraries(
-    PicoDac
+    PicoPong
     pico_stdlib
     hardware_pio
     hardware_dma
-    hardware_sync
-    hardware_adc)
+)
 
-pico_add_extra_outputs(PicoDac)
+pico_add_extra_outputs(PicoPong)
 
-pico_enable_stdio_usb(PicoDac 1)
-pico_enable_stdio_uart(PicoDac 0)
+pico_enable_stdio_usb(PicoPong 1)
+pico_enable_stdio_uart(PicoPong 0)
